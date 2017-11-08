@@ -1,5 +1,5 @@
 {
-  "name": "babel-preset-env",
+  "name": "@yued/babel-preset-env",
   "version": "1.6.2",
   "description": "A Babel preset for each environment.",
   "author": "Henry Zhu <hi@henryzoo.com>",
