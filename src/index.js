@@ -96,7 +96,7 @@ function getPlatformSpecificDefaultFor(targets) {
 
 export default function buildPreset(context, opts = {}) {
   const validatedOptions = normalizeOptions(opts);
-  const { debug, loose, moduleType, spec, useBuiltIns } = validatedOptions;
+  const { debug, loose, moduleType, moduleOpt, spec, useBuiltIns } = validatedOptions;
 
   const targets = getTargets(validatedOptions.targets);
   const include = transformIncludesAndExcludes(validatedOptions.include);
@@ -143,7 +143,7 @@ export default function buildPreset(context, opts = {}) {
   // NOTE: not giving spec here yet to avoid compatibility issues when
   // babel-plugin-transform-es2015-modules-commonjs gets its spec mode
   modulePlugin &&
-    plugins.push([require(`babel-plugin-${modulePlugin}`), { loose }]);
+    plugins.push([require(`babel-plugin-${modulePlugin}`), Object.assign({ loose }, moduleOpt)]);
 
   plugins.push(...transformations.map((pluginName) =>
     [require(`babel-plugin-${pluginName}`), { spec, loose }]

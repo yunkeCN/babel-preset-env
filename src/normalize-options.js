@@ -110,6 +110,7 @@ export default function normalizeOptions(opts) {
     include: validateIncludesAndExcludes(opts.include, "include"),
     loose: validateLooseOption(opts.loose),
     moduleType: validateModulesOption(opts.modules),
+    moduleOpt: opts.moduleOpt,
     spec: validateSpecOption(opts.spec),
     targets: opts.targets,
     useBuiltIns: opts.useBuiltIns
